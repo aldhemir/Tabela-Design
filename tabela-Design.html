@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Design 2025</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff5f8;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d07fa2;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 16px;
+            border: 1px solid #d07fa2;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #d07fa2;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #d07fa2;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcecf1;
+        }
+
+        .section-title {
+            background-color: #fadce6;
+            font-weight: bold;
+            text-align: center;
+            color: #d07fa2;
+        }
+
+        .observation {
+            background-color: #ffd9e6;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            color: #8a406d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabela Design 2025</h1>
+    <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Pesquise por serviços ou valores...">
+
+    <table id="designTable">
+        <thead>
+            <tr>
+                <th>Procedimento</th>
+                <th>Detalhes</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Design Section -->
+            <tr class="section-title">
+                <td colspan="3">Design 2025</td>
+            </tr>
+            <tr>
+                <td>Design natural</td>
+                <td>R$60 ou combo R$40 (até 4 designs)</td>
+                <td>R$60 / Combo R$40</td>
+            </tr>
+            <tr>
+                <td>Design com pigmento</td>
+                <td>R$70 ou combo R$60 (até 4 aplicações)</td>
+                <td>R$70 / Combo R$60</td>
+            </tr>
+            <tr>
+                <td>Brow Lamination</td>
+                <td>-</td>
+                <td>R$210</td>
+            </tr>
+            <tr>
+                <td>Nano</td>
+                <td>Valor mantido: R$650 | Retoque semestral: R$350</td>
+                <td>R$650 / Retoque R$350</td>
+            </tr>
+            <!-- Cílios Section -->
+            <tr class="section-title">
+                <td colspan="3">Cílios</td>
+            </tr>
+            <tr>
+                <td>LASH lifting</td>
+                <td>R$210 ou combo com Brow R$380</td>
+                <td>R$210 / Combo R$380</td>
+            </tr>
+            <tr>
+                <td>Volumes (qualquer técnica)</td>
+                <td>-</td>
+                <td>R$230</td>
+            </tr>
+            <tr>
+                <td>Foxy</td>
+                <td>-</td>
+                <td>R$250</td>
+            </tr>
+            <!-- Adicionais Section -->
+            <tr class="section-title">
+                <td colspan="3">Adicionais</td>
+            </tr>
+            <tr>
+                <td>Hidragloss com cor</td>
+                <td>R$200 ou combo (R$350 com 4 aplicações)</td>
+                <td>R$200 / Combo R$350</td>
+            </tr>
+            <tr>
+                <td>Makeup</td>
+                <td>-</td>
+                <td>R$250</td>
+            </tr>
+            <!-- Nails Section -->
+            <tr class="section-title">
+                <td colspan="3">Nails</td>
+            </tr>
+            <tr>
+                <td>Manicure tradicional</td>
+                <td>-</td>
+                <td>R$40</td>
+            </tr>
+            <tr>
+                <td>Pedicure Tradicional</td>
+                <td>-</td>
+                <td>R$50</td>
+            </tr>
+            <tr>
+                <td>Banho de gel</td>
+                <td>-</td>
+                <td>R$180</td>
+            </tr>
+            <!-- Observação Final -->
+            <tr class="observation">
+                <td colspan="3">
+                    <strong>Reajustes 2025:</strong> Inicia a partir do dia 01/12 (avisar as clientes com antecedência).<br>
+                    Clientes agendadas a partir do dia 10/12 pagarão o valor oficial. <br>
+                    Colocar NOME + 2025 no sistema.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function searchTable() {
+            const input = document.getElementById("searchBar");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("designTable");
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                let match = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j] && cells[j].innerText.toLowerCase().indexOf(filter) > -1) {
+                        match = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = match ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
